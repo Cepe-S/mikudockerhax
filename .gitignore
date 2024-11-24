@@ -1,0 +1,10 @@
+
+logs/
+
+__pycache__/
+*.py[cod]
+**/__pycache__/
+**/*.py[cod]
+files/token.txt
+__pycache__/Logs.cpython-311.pyc
+__pycache__/Server.cpython-311.pyc
