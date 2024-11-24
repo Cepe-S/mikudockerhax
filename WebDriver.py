@@ -13,6 +13,8 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.remote.command import Command
 from selenium.common.exceptions import WebDriverException
 
+from webdriver_manager.chrome import ChromeDriverManager
+
 import logging
 from sys import platform
 import os
@@ -80,7 +82,8 @@ class WebDriver:
             options.set_capability("goog:loggingPrefs", {"browser": "ALL"})
             options.add_experimental_option("detach", True)
 
-            if "linux" in platform and executablePath:
+            if "linux" in platform:
+                executablePath = ChromeDriverManager().install()
                 service = webdriver.ChromeService(executable_path=executablePath, log_output=os.devnull)
             else:
                 service = webdriver.ChromeService(log_output=os.devnull)
